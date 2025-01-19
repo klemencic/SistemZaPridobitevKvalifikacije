@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@model Ministrstvo
+
+<h1 id="naslov">Seznam neevaluiranih prošenj:</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Priimek</th>
+            <th>Naziv</th>
+            <th>Datum</th>
+            <th>Stanje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Prosnje != null)
+        {
+            @foreach (var prosnja in Model.Prosnje)
+            {
+                <tr>
+                    <td>@prosnja.Ime</td>
+                    <td>@prosnja.Priimek</td>
+                    <td>@prosnja.Naziv</td>
+                    <td>@prosnja.Datum</td>
+                    <td>
+                        <form asp-action="Potrdi" asp-controller="Ministrstvo" class="my-1" method="get">
+                            <input type="hidden" name="id" value="@prosnja.Datum" />
+                            <button type="submit" class="btn btn-success">Potrdi</button>
+                        </form>
+                        <!-- gumb "Izbriši" -->
+                        <form asp-action="Zavrni" asp-controller="Ministrstvo" method="get">
+                            <input type="hidden" name="id" value="@prosnja.Datum" />
+                            <button type="submit" class="btn btn-danger">Zavrni</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div id="successMessage" class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="container">
+    <a asp-area="" asp-controller="Ministrstvo" asp-action="Odjava">Odjava</a>
+</div>

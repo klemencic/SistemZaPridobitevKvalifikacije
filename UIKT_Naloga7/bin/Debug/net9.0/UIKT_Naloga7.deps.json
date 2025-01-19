@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "UIKT_Naloga7/1.0.0": {
+        "runtime": {
+          "UIKT_Naloga7.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "UIKT_Naloga7/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

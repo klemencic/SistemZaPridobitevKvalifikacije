@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\UIKT_Naloga7.props" />
+</Project>
